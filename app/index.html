@@ -30,15 +30,14 @@
         </div>
       </ul>
 
-      <br>
+      <br><br><br>
 
       <div data-ng-repeat="contact in contacts">
           <div class="entry">
-            <p>Name: {{contact.firstName + " " + contact.lastName}}</p>
-            <p>Address: {{contact.address}}</p>
-            <p>City: {{contact.city}} </p>
-            <p>State: {{contact.state}} </p>
-            <p>zip: {{contact.zip}} </p>
+            <p>{{contact.firstName + " " + contact.lastName}}</p>
+            <p>{{contact.address}}</p>
+            <p>{{contact.city}} {{contact.state}} {{contact.zip}} </p>
+            <p>Birthday: {{contact.birthday}} </p>
           </div>
       </div>
 

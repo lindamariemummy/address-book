@@ -1,14 +1,14 @@
 'use strict';
 
-require('../app/js/main');
+require('../../app/js/main');
 require('angular-mocks');
 
-describe('m/m/m controller', function() {
+describe('contacts conroller', function() {
   var $controllerConstructor;
   var $httpBackend;
   var $scope;
 
-  beforeEach(angular.mock.module('mmmApp'));
+  beforeEach(angular.mock.module('contactApp'));
 
   beforeEach(angular.mock.inject(function($rootScope, $controller) {
     $scope = $rootScope.$new();
@@ -16,8 +16,8 @@ describe('m/m/m controller', function() {
   }));
 
   it('should be able to create a controller', function() {
-    var mmmController = $controllerConstructor('mmmCtrl', {$scope: $scope});
-    expect(typeof mmmController).toBe('object');
+    var contactCtrl = $controllerConstructor('contactApp', {$scope: $scope});
+    expect(typeof contactCtrl).toBe('object');
   });
 
   describe('rest request', function() {
@@ -30,7 +30,7 @@ describe('m/m/m controller', function() {
       $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('should be able to make a basic call', function() {
+    /*it('should be able to make a basic call', function() {
       $httpBackend.expectPOST('/api/calcmmm').respond(200, {mean:2, median: 1.5, mode:1});
       $controllerConstructor('mmmCtrl', {$scope: $scope});
       $scope.values = '1 1 2 4';
@@ -41,6 +41,6 @@ describe('m/m/m controller', function() {
       expect($scope.mean).toBe(2);
       expect($scope.median).toBe(1.5);
       expect($scope.mode).toBe(1);
-    });
+    });*/
   });
 });

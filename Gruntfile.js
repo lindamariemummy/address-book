@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       },
 
       test: {
-        src: ['test/client.js'],
+        src: ['test/client/client.js'],
         dest: 'test/angular_testbundle.js',
         options: {
           transform: ['debowerify']
@@ -58,18 +58,18 @@ module.exports = function(grunt) {
         node: true,
         jshintrc: '.jshintrc'
       },
-      src: ['Gruntfile.js', 'server.js', 'test/client.js', 'test/modules.js', 'test/server.js', 'routes/**/*.js', 'app/**/*.js', 'models/*.js']
+      src: ['Gruntfile.js', 'server.js', 'test/**/*.js', 'routes/**/*.js', 'app/**/*.js', 'models/*.js']
     },
 
     jscs: {
-      src: ['Gruntfile.js', 'server.js', 'test/client.js', 'test/modules.js', 'test/server.js', 'routes/**/*.js', 'app/**/*.js', 'models/*.js'],
+      src: ['Gruntfile.js', 'server.js', 'test/**/*.js', 'routes/**/*.js', 'app/**/*.js', 'models/*.js'],
       options: {
         config: '.jscsrc'
       }
     },
 
     test: {
-      src: ['test/client.js'],
+      src: ['test/client/client.js'],
       dest: 'test/angular_testbundle.js',
       options: {
         transform: ['debowerify']
@@ -88,13 +88,13 @@ module.exports = function(grunt) {
     },
 
     simplemocha: {
-      src: ['test/modules.js', 'test/server.js']
+      src: ['test/server/*.js']
     }
   });
 
   grunt.registerTask('build', ['sass:dist', 'clean:dev', 'browserify:dev', 'copy:dev']);
-  //grunt.registerTask('test:client', ['browserify:test', 'karma:unit']);
-  //grunt.registerTask('test:server', ['jscs', 'jshint', 'simplemocha']);
-  //grunt.registerTask('default', ['test:client', 'test:server']);
+  grunt.registerTask('test:client', ['browserify:test', 'karma:unit']);
+  grunt.registerTask('test:server', ['simplemocha']);
+  grunt.registerTask('test', ['test:client', 'test:server']);
   grunt.registerTask('default', ['jscs', 'jshint']);
 };
