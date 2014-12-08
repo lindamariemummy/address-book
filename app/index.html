@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="stylesheet.css" rel="stylesheet"></link>
+
+</head>
+<body>
+  <div data-ng-app="contactApp">
+    <div data-ng-controller="contactCtrl" ng-init="tab = 'A'">
+      <h1> Fill out the form below to add a contact to your address book</h1>
+      <div class="input">First Name: <input type="text" data-ng-model=contactInfo.firstName /></div>
+      <div class="input">Last Name: <input type="text" data-ng-model=contactInfo.lastName /></div>
+      <div class="input">Address: <input type="text" data-ng-model=contactInfo.address /></div>
+      <div class="input">City: <input type="text" data-ng-model=contactInfo.city /></div>
+      <div class="input">State: <input type="text" data-ng-model=contactInfo.state /></div>
+      <div class="input">Zip: <input type="text" data-ng-model=contactInfo.zip /></div>
+      <div class="input">Birthday: <input type="text" data-ng-model=contactInfo.birthday /></div>
+      <button data-ng-click="saveContact()">Save Contact</button>
+      <button data-ng-click="getContacts()">Display all Contacts</button>
+      <p>{{message}}</p>
+
+      <br>
+      <ul>
+        <div data-ng-repeat="letter in alphabet">
+          <li ng-class="{active:tab===letter}">
+            <a href ng-click="getByLetter(letter)"> {{letter}} </a>
+          </li>
+        </div>
+      </ul>
+
+      <br>
+
+      <div data-ng-repeat="contact in contacts">
+          <div class="entry">
+            <p>Name: {{contact.firstName + " " + contact.lastName}}</p>
+            <p>Address: {{contact.address}}</p>
+            <p>City: {{contact.city}} </p>
+            <p>State: {{contact.state}} </p>
+            <p>zip: {{contact.zip}} </p>
+          </div>
+      </div>
+
+    </div>
+  </div>
+  <script src='./bundle.js'> </script>
+</body>
+</html>

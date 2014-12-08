@@ -1,0 +1,22 @@
+{
+  "predef": ["angular"],
+  "globalstrict": true,
+  "globals": {
+    "after": false,
+    "before": false,
+    "beforeEach": false,
+    "describe": false,
+    "it": false,
+    "require": false,
+    "module": false,
+    "console": false,
+    "process": false,
+    "afterEach": false,
+    "__dirname": false,
+    "to": false,
+    "expect": true
+  },
+  "globalstrict" : true,
+  "undef": true,
+  "unused": true
+}
