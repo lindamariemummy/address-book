@@ -12,6 +12,7 @@ describe('server', function() {
     .post('/api/newcontact')
     .end(function(err, res) {
       expect(err).to.eql(null);
+      expect(res).to.be.an('object');
       done();
     });
   });
@@ -21,6 +22,7 @@ describe('server', function() {
     .get('/api/allcontacts')
     .end(function(err, res) {
       expect(err).to.eql(null);
+      expect(res).to.be.an('object');
       done();
     });
   });
@@ -30,6 +32,7 @@ describe('server', function() {
     .get('/api/contactsbylastname?q=A')
     .end(function(err, res) {
       expect(err).to.eql(null);
+      expect(res).to.be.an('object');
       done();
     });
   });

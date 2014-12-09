@@ -58,11 +58,11 @@ module.exports = function(grunt) {
         node: true,
         jshintrc: '.jshintrc'
       },
-      src: ['Gruntfile.js', 'server.js', 'test/**/*.js', 'routes/**/*.js', 'app/**/*.js', 'models/*.js']
+      src: ['Gruntfile.js', 'server.js', 'test/client/client.js', 'test/server/server.js', 'routes/**/*.js', 'app/**/*.js', 'models/*.js']
     },
 
     jscs: {
-      src: ['Gruntfile.js', 'server.js', 'test/**/*.js', 'routes/**/*.js', 'app/**/*.js', 'models/*.js'],
+      src: ['Gruntfile.js', 'server.js', 'test/client/client.js', 'test/server/server.js', 'routes/**/*.js', 'app/**/*.js', 'models/*.js'],
       options: {
         config: '.jscsrc'
       }
@@ -96,5 +96,5 @@ module.exports = function(grunt) {
   grunt.registerTask('test:client', ['browserify:test', 'karma:unit']);
   grunt.registerTask('test:server', ['simplemocha']);
   grunt.registerTask('test', ['test:client', 'test:server']);
-  grunt.registerTask('default', ['jscs', 'jshint']);
+  grunt.registerTask('default', ['jscs', 'jshint', 'test']);
 };
